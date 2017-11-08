@@ -1,40 +1,62 @@
 body
 {
-    font-size: 16px;
+    font-size: 14px;
+    font-family: arial, sans-serif;
+    /* image from pexels.com thank you pexels.com */
+    background-image: url('../img/calcbg.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+@media screen and (max-width: 700px) {
+body {
+    background-image: none !important;
+}
 }
 
 #screen
 {
     width: 80%;
-    height: 30px;
+    height: 40px;
     border: 1px solid black;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 50px;
     text-align: right;
-    font-size: 24px;
+    font-size: 32px;
     font-weight: bold;
     padding: 4px;
     background-color: #f4fcc7;
     border-radius: 6px;
+    font-family: monospace;
 
 }
 
 #calculator
 {
-    width: 300px;
-    border: 2px solid black;
-    height: 360px;
+    width: 320px;
+    border: 1px solid black;
+    height: 380px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
-    background-color: #dfe6ff;
-    border-radius: 10px;
+    margin-bottom: 30px;
+    background: #cedce7; /* Old browsers */
+    background: -moz-linear-gradient(top, #cedce7 0%, #596a72 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #cedce7 0%,#596a72 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #cedce7 0%,#596a72 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedce7', endColorstr='#596a72',GradientType=0 ); /* IE6-9 */
+    border-radius: 6px;
+    box-shadow: 8px 6px 5px #585757;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .calcbutton
 {
+    font-size: 18px;
+    font-weight: bold;    
     width: 20%;
     height: 30px;
     margin-left: 6px;
@@ -44,12 +66,29 @@ body
     text-decoration: none;
     display: inline-block;    
     border-radius: 4px;
- 
+    border: 1px solid white;
+    color: white;
+    background-color: rgb(44, 41, 41); 
+}
+
+.calcbutton:hover {
+    cursor: pointer;
+    background-color: rgb(85, 79, 79); 
+}
+
+.calcbutton:active {
+box-shadow: 0 2px rgb(37, 37, 37);
+transform: translateY(2px);
 }
 
 .equals
 {
-    background-color: #4cff00;
+    background-color: #38aa42;
+}
+
+.equals:hover {
+    background-color: #5acf64 !important;    
+
 }
 
 .hidden{
@@ -68,4 +107,9 @@ body
 li 
 {
     margin-top: 4px;
+}
+
+.madeby {
+    text-align: center;
+    font-size: 16px;
 }

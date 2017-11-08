@@ -1,8 +1,8 @@
 // calculator.js
-// quick and dirty javascript calculator using no libraries
+// JavaScript handheld calculator made without libraries
 // largely created to experience the pain to make libraries
-// and careful design work necessary/helpful
-// Very early work in progress
+// the pain was experienced
+// by Eric (Martin) Mancini, https://github.com/eqmvii
 
 console.log("Script loaded!");
 
@@ -555,7 +555,7 @@ var equalsign = function () {
         result = parseFloat(temp);
 
     }
-    if (app.display.length > 15 || (result < 0.000001 && result > 0))
+    if (app.display.length > 10 || (result < 0.000001 && result > 0))
     {
         console.log("Error: overflow. Result: " + result + " Display: " + app.display);
         restart();
@@ -644,7 +644,7 @@ var clearequalsrepeat = function()
 var restart = function()
 {
     app.lockout = true;
-    app.screen.innerHTML = "Error (Overflow?)";
+    app.screen.innerHTML = "E/Overflow?";
     app.input = [0];
     app.display = "";
 }

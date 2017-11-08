@@ -1,7 +1,9 @@
 # Calculator
 
-A vanilla JavaScript calculator program
+A vanilla JavaScript calculator, designed to work like a handheld calculator. Made without any libraries, just JavaSCript/HTML/CSS.
 
-See it live here: https://codepen.io/eqmvii/pen/Qvbbvw.
+Works with numpad entry! 
+
+See it live here: https://eqmvii.github.io/calculator/index.html
 
  
