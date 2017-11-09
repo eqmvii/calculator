@@ -2,6 +2,7 @@
 // JavaScript handheld calculator made without libraries
 // largely created to experience the pain to make libraries
 // the pain was experienced
+// I've rooted out a number of bugs but this spiralled out of control and surely some remain
 // by Eric (Martin) Mancini, https://github.com/eqmvii
 
 console.log("Script loaded!");
@@ -32,10 +33,13 @@ app.plus = document.getElementById('plus');
 
 app.screen = document.getElementById('screen');
 
-// variables to track things
 app.input = [];
 app.display = "";
+
+// array to store commands for when a user repeatedly presses equals
+// mimicking the behavior of many hand calculators
 app.equalsrepeat = [];
+
 app.divflag = false;
 app.lockout = false;
 
@@ -43,6 +47,7 @@ app.zero.addEventListener("click", function () {
     zeroFunc();
 });
 
+// special function for protecting against dividing by zero
 var zeroFunc = function () {
     console.log(app.divflag);
     if (app.divflag)
@@ -96,7 +101,7 @@ app.nine.addEventListener("click", function () {
 var numPress = function (n) {
     app.lockout = false;
     app.divflag = false;
-    if (app.input.length > 15)
+    if (app.input.length > 9)
     {
         restart();
         return;
@@ -187,17 +192,24 @@ var dotpress = function () {
         return;
     }*/
     // check to see if last push was a dot, and if so, do nothing
+    console.log("For debugging, here's typeof what was just pressed: ");
+    console.log(typeof app.input[app.input.length - 1]);
 
     if (app.input.length >= 1 && app.input[app.input.length - 1] === ".")
     {
         return;
     }
     // clear input if we just did a calc
+    
     else
     {
         if (app.input.length === 0 || typeof app.input[app.input.length - 1] !== "number" || app.equalsrepeat.length > 0)
         {
-            app.input = [];
+            // clearout the input if this is a fresh of repeated use of the decimal
+            if (app.input.length === 0 || app.equalsrepeat.length > 0)
+            {
+                app.input = [];
+            }
             console.log("Dot pressed and needs to be zero+");
             clearequalsrepeat();
             console.log("Either no input yet, or just finished an operation");
@@ -220,7 +232,7 @@ app.ce.addEventListener("click", function ()
     {
         if (typeof app.input[i] === "number" || app.input[i] === ".")
         {
-            console.log("if triggered!");
+            console.log("c/e if triggered!");
             console.log(app.input);
             app.input.pop();
             console.log(app.input);
@@ -298,7 +310,7 @@ app.equals.addEventListener("click", function () {
     equalsign();
 });
 
-// make it work like iphone: 
+// make the percent feature work like iPhone calc's does: 
 app.percent.addEventListener("click", function () {
     let holder = [];
     let numstr = "";
